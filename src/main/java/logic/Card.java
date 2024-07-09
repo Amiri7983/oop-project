@@ -124,5 +124,23 @@ public class Card {
     public void change(Game a){
         //با توجه به اینکه مود بازی چجوری زده شده تعریفش میکنیم
     }
+    public int getDamage() {
+        return this.damage;
+    }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public int getACC() {
+        return this.godrat;
+    }
+
+    public void setACC(int ad) {
+        this.ad = ad;
+    }
 }

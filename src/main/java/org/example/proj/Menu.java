@@ -11,26 +11,30 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import logic.Main;
 import logic.User;
 
+import java.io.IOException;
 import java.net.URL;
 
 import static logic.Main.users;
 
 public class Menu extends Application {
     public static Stage stage;
+    public static boolean x = false;
+    public static AnchorPane anchorPane  = new AnchorPane();
+    public static URL url = Start.class.getResource("menu.fxml");
+    public static URL url2 = Start.class.getResource("menu2.fxml");
     @Override
     public void start(Stage stage) throws Exception {
         Menu.stage = stage;
         User a = users.get(Main.index);
-        URL url = Start.class.getResource("menu.fxml");
-        AnchorPane anchorPane = FXMLLoader.load(url);
+        //URL url = Start.class.getResource("menu.fxml");
+        //AnchorPane anchorPane = FXMLLoader.load(url);
+        change(x);
         Image ima = new Image("label.png");
         ImageView ing = new ImageView(ima);
         ing.setFitWidth(300);
@@ -118,6 +122,18 @@ public class Menu extends Application {
                 }
             }
         });
+        setting.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Settings m = new Settings();
+                    m.start(Menu.stage);
+                }
+                catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
         Image image = new Image("player.png");
         ImageView img = new ImageView(image);
         img.setLayoutX(10);
@@ -151,12 +167,17 @@ public class Menu extends Application {
                 }
             }
         });
-        Media media = new Media("file:///C:/Users/LENOVO/Desktop/proj/src/main/resources/music1.mp3");
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
         Scene scene = new Scene(anchorPane);
         stage.setScene(scene);
         stage.setTitle("CITY WARS : TOKYO");
         stage.show();
+    }
+    public static void change(boolean x) throws Exception {
+        if(x){
+            Menu.anchorPane = FXMLLoader.load(url2);
+        }
+        else{
+            Menu.anchorPane = FXMLLoader.load(url);
+        }
     }
 }

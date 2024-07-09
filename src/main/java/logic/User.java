@@ -28,11 +28,17 @@ public class User {
     String answer2 = null;
     String answer3 = null;
     String confirm;
-    public int level =1;
+    public static int level =1;
     public int hp =100;
-    public int xp;
+    public static int xp;
     public int coins = 100;
     public ArrayList<Card> cards;
+    double damage = 100;
+    String character;
+
+    GameBoard gameBoard = new GameBoard();
+    ArrayList<Card> hand;
+    private static final int[] requiredXP = {100, 200, 300, 400, 500};
     int number;
     public User(String username, String password, String email, String nickname, String answer1){
         this.email = email;
@@ -210,5 +216,197 @@ public class User {
             }
         }
         return false;
+    }
+    public double getDamage() {
+        return this.damage;
+    }
+
+    public void setDamage(double damage) {
+        this.damage = damage;
+    }
+
+    public int getXP() {
+        return this.xp;
+    }
+
+    public int setXP(int xp) {
+        return this.xp = xp;
+    }
+
+    public double getCoin() {
+        return coins;
+    }
+
+    public void setCoin(double coins) {
+        this.coins = (int)coins;
+    }
+
+    public double getHP() {
+        return this.hp;
+    }
+
+    public void setHP(double hp) {
+        this.hp = (int) hp;
+    }
+
+    public String getUserName() {
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setCharacter(String character) {
+        this.character = character;
+    }
+
+    public String getCharacter() {
+        return this.character;
+    }
+
+    public ArrayList<Card> getMyCard() {
+        return Main.cards;
+    }
+
+
+    public ArrayList<Card> getHand() {
+        return this.hand;
+    }
+
+    public GameBoard getGameBoard() {
+        return this.gameBoard;
+    }
+
+    public void setGameBoard(GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
+    }
+
+    public String getCharacterString() {
+        return character;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public void createHand() {
+        Collections.shuffle(Main.cards);
+        for (int i = 0; i < 5; i++) {
+            hand.add(Main.cards.get(i));
+        }
+    }
+
+
+    public void addAnotherCard(int playedRounds) {
+        hand.add(Main.cards.get(5 + playedRounds));
+    } // ye taghiri ijad kon ba komk cards4&6
+
+    public void cards_4and6(User user2, Card card) {
+        this.getHand().add(card);
+        user2.getHand().remove(card); // shayad ham bejaye remove bayad null krd
+    }
+
+    public void cards_6(Card c) {
+        this.getHand().add(c);
+    }
+
+    public void levelUp() {
+
+    }
+
+    void levelUp(int xp) {
+        this.xp = xp;
+        checkLevelUp();
+    }
+
+    private static void checkLevelUp() {
+        while (xp >= requiredXP[level - 1]) {
+            level++;
+            xp = 0;
+            congratulatePlayer();
+        }
+    }
+
+    private static void congratulatePlayer() {
+        System.out.println("Congratulations! You've Reached Level " + level + "!");
+    }
+
+    public static void showHistoryByDateAndTime(User user) {
+        System.out.println(user.username + "'s History By Date And Time:");
+        ArrayList<Integer> temp = new ArrayList<>();
+        for (int i = 0; i < StartGame.player1Username.size(); i++) {
+            if (Objects.equals(StartGame.player1Username.get(i).username, user.username)) {
+                temp.add(i);
+            }
+        }
+        for(int i = 0; i < temp.size(); i++){
+            System.out.println( (i + 1) +". Date And Time: " + StartGame.GameFinishedTime.get(temp.get(i)) + " Opponent (Level): " + StartGame.player2Username.get(temp.get(i)).username +" (" + StartGame.player2Level.get(temp.get(i)) + ")" + " Game State(Win/Loss):" + StartGame.player1GameState.get(temp.get(i)) + " Earnings: " + StartGame.player1Earnings);
+        }
+
+    }
+    public static User getLoginUser() {
+        User user = null;
+        for (int i = 0; i < users.size(); i++) {
+            if (Main.logged) {
+                user = users.get(i);
+            }
+        }
+        return user;
+    }
+
+    public static User getUserByName(String input) {
+        int temp = 0;
+        for (int i = 0; i < usernames.size(); i++) {
+            if (usernames.get(i) == input) ;
+            temp = i;
+        }
+        return users.get(temp);
+    }
+    public static void showHistoryByOpponentName(User user){
+        System.out.println(user.username + "'s History By Opponent's Name(Alphabetic):");
+        ArrayList<Integer> temp1 = new ArrayList<>();
+        ArrayList<String> usernameTemp = new ArrayList<>();
+        for (int i = 0; i < StartGame.player1Username.size(); i++) {
+            if (Objects.equals(StartGame.player1Username.get(i).username, user.username)) {
+                temp1.add(i);
+            }
+        }
+
+        for(int i = 0; i < StartGame.player2Username.size(); i++){
+            usernameTemp.add(StartGame.player2Username.get(temp1.get(i)).username);
+        }
+        Collections.sort(usernameTemp);
+        int count1 = usernameTemp.size();
+        for(int i = 0; i < count1; i++){
+            for(int j = 0; j < count1; j++){
+                if (Objects.equals(StartGame.player2Username.get(j).username,usernameTemp.get(i))){
+                    System.out.println("Date And Time: " + StartGame.GameFinishedTime.get(j) + " Opponent (Level): " + StartGame.player2Username.get(j).username +" (" + StartGame.player2Level.get(j) + ")" + " Game State(Win/Loss):" + StartGame.player1GameState.get(j) + " Earnings: " + StartGame.player1Earnings.get(j));
+                }
+            }
+        }
+    }
+    public static void showHistoryByOpponentLevel(User user){
+        System.out.println(user.username + "'s History Based On Opponent's Level");
+        ArrayList<Integer> temp2 = new ArrayList<>();
+        ArrayList<String> usernameTemp = new ArrayList<>();
+        for (int i = 0; i < StartGame.player1Username.size(); i++) {
+            if (Objects.equals(StartGame.player1Username.get(i).username, user.username)) {
+                temp2.add(i);
+            }
+        }
+
+        for(int i = 0; i < StartGame.player2Username.size(); i++){
+            usernameTemp.add(StartGame.player2Username.get(temp2.get(i)).username);
+        }
+        Collections.sort(usernameTemp);
+        int count1 = usernameTemp.size();
+        for(int i = 0; i < count1; i++){
+            for(int j = 0; j < count1; j++){
+                if (Objects.equals(StartGame.player2Username.get(j).username,usernameTemp.get(i))){
+                    System.out.println("Date And Time: " + StartGame.GameFinishedTime.get(j) + " Opponent (Level): " + StartGame.player2Username.get(j).username +" (" + StartGame.player2Level.get(j) + ")" + " Game State(Win/Loss):" + StartGame.player1GameState.get(j) + " Earnings: " + StartGame.player1Earnings.get(j));
+                }
+            }
+        }
     }
 }

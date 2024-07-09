@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 import logic.Card;
 import logic.Main;
 import logic.User;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.net.URL;
@@ -24,6 +22,7 @@ import java.util.ArrayList;
 
 public class Start extends Application{
     public static Stage stage;
+    public static AnchorPane anchorPane = new AnchorPane();
     public static ArrayList<Card> scards = new ArrayList<>();
     public static ArrayList<Card> fcards = new ArrayList<>();
     @Override
@@ -156,7 +155,7 @@ public class Start extends Application{
         Main.users.add(amiri);
         amiri.cards.addAll(fcards);
         URL url = Start.class.getResource("start.fxml");
-        AnchorPane anchorPane = FXMLLoader.load(url);
+        anchorPane = FXMLLoader.load(url);
         Image ima = new Image("label.png");
         ImageView ing = new ImageView(ima);
         ing.setFitWidth(300);
@@ -202,9 +201,7 @@ public class Start extends Application{
                 }
             }
         });
-//        Media media = new Media("file:///C:/Users/LENOVO/Desktop/proj/src/main/resources/music1.mp3");
-//        MediaPlayer mediaPlayer = new MediaPlayer(media);
-//        mediaPlayer.play();
+
         Scene scene = new Scene(anchorPane);
         stage.setScene(scene);
         stage.setTitle("CITY WARS : TOKYO");
