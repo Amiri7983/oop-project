@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.proj.Login">
+   <children>
+      <GridPane layoutY="-4.0" prefHeight="407.0" prefWidth="600.0" style="-fx-background-color: #231640;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.5999755859375" minWidth="10.0" prefWidth="174.59998779296876" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.5999755859375" minWidth="10.0" prefWidth="246.7999755859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="461.5999755859375" minWidth="10.0" prefWidth="185.20002441406257" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="220.79999771118165" minHeight="10.0" prefHeight="202.7999755859375" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="220.79999771118165" minHeight="10.0" prefHeight="48.20000915527345" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="227.20000305175782" minHeight="10.0" prefHeight="41.39999999999998" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="165.79997863769535" minHeight="10.0" prefHeight="49.39999999999998" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="165.79997863769535" minHeight="10.0" prefHeight="82.20004882812498" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="unf" prefHeight="36.0" prefWidth="245.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="psf" prefHeight="36.0" prefWidth="245.0" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="errorlbl" prefHeight="31.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.79998779296875" minWidth="10.0" prefWidth="80.80003662109375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.20001220703125" minWidth="10.0" prefWidth="163.99996337890627" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
