@@ -29,7 +29,7 @@ public class Usercardsdetail extends Application {
     public void start(Stage stage) throws Exception {
         Usercardsdetail.stage = stage;
         User a = users.get(Main.index);
-        Card b = scards.get(Dcard.adad);
+        Card b = a.cards.get(Dcard.adad);
         URL url = Start.class.getResource("dddddddd.fxml");
         AnchorPane anchorPane = FXMLLoader.load(url);
         Image ima = new Image("label.png");
