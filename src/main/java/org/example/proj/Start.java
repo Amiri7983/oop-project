@@ -51,19 +51,19 @@ public class Start extends Application{
         ImageView img12 = new ImageView(in12);
         Image in13 = new Image("repair.png");
         ImageView img13 = new ImageView(in13);
-        Image in14 = new Image("Card14.png");
+        Image in14 = new Image("card14.png");
         ImageView img14 = new ImageView(in14);
-        Image in15 = new Image("Card15.png");
+        Image in15 = new Image("card15.png");
         ImageView img15 = new ImageView(in15);
-        Image in16 = new Image("Card16.png");
+        Image in16 = new Image("card16.png");
         ImageView img16 = new ImageView(in16);
-        Image in17 = new Image("Card17.png");
+        Image in17 = new Image("card17.png");
         ImageView img17 = new ImageView(in17);
-        Image in18 = new Image("Card18.png");
+        Image in18 = new Image("card18.png");
         ImageView img18 = new ImageView(in18);
-        Image in19 = new Image("Card19.png");
+        Image in19 = new Image("card19.png");
         ImageView img19 = new ImageView(in19);
-        Image in20 = new Image("Card20.png");
+        Image in20 = new Image("card20.png");
         ImageView img20 = new ImageView(in20);
 
         scards.add(new Card("Card1","normal",4,34,40,25,img1));
@@ -74,8 +74,7 @@ public class Start extends Application{
         scards.add(new Card("Card6","normal",5,35,55,25,img6));
         scards.add(new Card("shield","shield",2,0,0,20,img7));
         scards.add(new Card("extra power","extrapower",1,0,0,20,img8 , 15));
-        scards.add(new Card("heal","heal",1,0,0,20,
-                img9,10));
+        scards.add(new Card("heal","heal",1,0,0,20, img9,10));
         scards.add(new Card("less power","lesspower",1,0,0,20,img10 , 10));
         scards.add(new Card("less round","lessround",1,0,0,20,img11 , 10));
         scards.add(new Card("change","change",1,0,0,20,img12 , 0));
@@ -88,6 +87,8 @@ public class Start extends Application{
         scards.add(new Card("Card19","normal",3,27,30,25,img19));
         scards.add(new Card("Card20","normal",1,31,15,25,img20));
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Image inage1 = new Image("fcard1.png");
+        ImageView image1 = new ImageView(inage1);
         fcards.add(new Card("Fcard1","normal",4,34,40,25,img1));
         Start.stage = stage;
         User amiri = new User("amirreza","amiri1683","amir@yahoo.com","amiri","aliakbar");
