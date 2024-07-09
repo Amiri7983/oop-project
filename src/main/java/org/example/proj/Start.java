@@ -89,7 +89,17 @@ public class Start extends Application{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Image inage1 = new Image("fcard1.png");
         ImageView image1 = new ImageView(inage1);
+        Image inage2 = new Image("fcard2.png");
+        ImageView image2 = new ImageView(inage2);
+        Image inage3 = new Image("fcard3.png");
+        ImageView image3 = new ImageView(inage3);
+        Image inage4 = new Image("fcard4.png");
+        ImageView image4 = new ImageView(inage4);
+        Image inage5 = new Image("fcard5.png");
+        ImageView image5= new ImageView(inage5);
+
         fcards.add(new Card("Fcard1","normal",4,34,40,25,img1));
+
         Start.stage = stage;
         User amiri = new User("amirreza","amiri1683","amir@yahoo.com","amiri","aliakbar");
         Main.users.add(amiri);
