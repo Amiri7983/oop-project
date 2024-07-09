@@ -65,7 +65,7 @@ public class Usercardsdetail extends Application {
         });
         ImageView z = b.img;
         z.setLayoutX(300);
-        z.setLayoutY(140);
+        z.setLayoutY(120);
         z.setFitWidth(122);
         z.setFitHeight(200);
         anchorPane.getChildren().add(z);

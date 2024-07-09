@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -60,6 +61,18 @@ public class Dcard extends Application {
             hbox.getChildren().add(itemLabel);
         }
         anchorPane.getChildren().add(hbox);
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(hbox);
+        scrollPane.setLayoutX(100);
+        scrollPane.setLayoutY(200);
+        scrollPane.setPrefViewportWidth(400);
+        scrollPane.setPrefViewportHeight(35);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setStyle("-fx-background: BLack ; -fx-background-color: Black;");
+        scrollPane.setFitToHeight(true);
+        scrollPane.setPannable(true);
+        anchorPane.getChildren().add(scrollPane);
         Button back = new Button("EXIT");
         back.setPrefHeight(26);
         back.setPrefWidth(64);
