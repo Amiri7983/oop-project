@@ -48,7 +48,7 @@ public class Dcard extends Application {
             itemLabel.setStyle("-fx-padding: 10 ; -fx-border-color: white;");
             int finalI = i;
             itemLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                Usercardsdetail.dlabel.setText(item.getcard());
+                Usercardsdetail.dlabel.setText(item.getdetails());
                 adad = finalI;
                 Usercardsdetail m = new Usercardsdetail();
                 try {

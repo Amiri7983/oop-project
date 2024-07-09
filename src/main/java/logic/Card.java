@@ -68,6 +68,10 @@ public class Card {
         return ("Name: " +this.name + "\nType: "+this.type + "\nCoin: " + this.coin+"\nDamage: " + this.damage + "\nAttak/Deffense: " + this.ad +
                 "\nDuration: " + this.duration + "\nSpecial: "+this.godrat);
     }
+    public String getdetails(){
+        return ("Name: " +this.name + "\nType: "+this.type +"\nDamage: " + this.damage + "\nAttak/Deffense: " + this.ad +
+                "\nDuration: " + this.duration );
+    }
     public int getCoin() {
         return this.coin;
     }
