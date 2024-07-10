@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -149,6 +151,9 @@ public class Menu extends Application {
                 }
             }
         });
+        Media media = new Media("file:///C:/Users/LENOVO/Desktop/proj/src/main/resources/music1.mp3");
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
         Scene scene = new Scene(anchorPane);
         stage.setScene(scene);
         stage.setTitle("CITY WARS : TOKYO");

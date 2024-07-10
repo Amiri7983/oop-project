@@ -1,6 +1,7 @@
 module org.example.proj {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
 
     opens org.example.proj to javafx.fxml;
