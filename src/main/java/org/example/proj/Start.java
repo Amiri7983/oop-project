@@ -67,7 +67,6 @@ public class Start extends Application{
         ImageView img19 = new ImageView(in19);
         Image in20 = new Image("card20.png");
         ImageView img20 = new ImageView(in20);
-
         scards.add(new Card("Card1","normal",4,34,40,25,img1));
         scards.add(new Card("Card2","normal",5,35,45,25,img2));
         scards.add(new Card("Card3","normal",4,39,48,30,img3));
